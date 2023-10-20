@@ -22,16 +22,64 @@
         #subhead{
             margin: 0;
             background-color: #582C2C;
-            height: 100px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
         }
+        #center{
+            display: flex;
+            margin: 0;
+            height: 400px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #prefooter{
+            margin: 0;
+            background-color: #383838;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        #footer{
+            display: flex;
+            margin: 0;
+            background-color: #1C2443;
+            height: 160px;
+            align-items: center;
+        }
+        .centerDiv{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         #subjectTitle{
             font-size: 80px;
             margin: 0%;
             margin-left: 10px;
+        }
+        #remainTitle{
+            align-self: center;
+            font-size: 50px;
+            margin: 0px;
+        }
+        #timeRemainTitle{
+            font-size: 160px;
+            margin: 0px;
+        }
+        #footLeftSide{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+        #footRightSide{
+            display: flex;
+            justify-content: center;
+            width: 50%;
         }
         .headSpan{
             font-size: 45px;
@@ -41,6 +89,24 @@
             font-size: 40px;
             margin-left: 10px;
             margin-right: 20%;
+        }
+        .prefootSpan{
+            font-size: 40px;
+            margin-left: 10px;
+            margin-right: 10%;
+            width: fit-content;
+        }
+        .footSpan{
+            font-size: 40px;
+            margin-left: 10px;
+            margin-right: 10%;
+            width: fit-content;
+        }
+        .bigfootSpan{
+            font-size: 80px;
+            margin-left: 10px;
+            margin-right: 10%;
+            width: fit-content;
         }
     </style>
 </head>
@@ -63,6 +129,34 @@
             <div>
                 <span class="subheadSpan"><b>PROF(S): </b>MASSEMIN, BENADA, FILLON, CORDOUAN</span>
             </div>
+        </div>
+    </div>
+    <div id="center">
+        <div class="centerDiv">
+            <h1 id="remainTitle">TERMINÉ DANS:</h1>
+        </div>
+        <div class="centerDiv">
+            <h1 id="timeRemainTitle">1h19</h1>
+        </div>
+    </div>
+    <div id="prefooter">
+        <div style="display: inline; width: 100%;">
+            <div style="display: flex;">
+                <span class="prefootSpan"><b>Cours suivant: </b>Ing. Dev. Dur</span>
+                <span class="prefootSpan"><b>SALLE: </b>CUBE>OPEN NIV2</span>
+            </div>
+            <div>
+                <span class="prefootSpan"><b>PROF(S): </b>MASSEMIN, BENADA, FILLON, CORDOUAN</span>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footLeftSide">
+            <span class="footSpan"><b>Fin des cours à: </b>18h00</span>
+            <span class="footSpan"><b>Sortie au: </b>CUBE>OPEN NIV2</span>
+        </div>
+        <div id="footRightSide">
+            <span class="bigfootSpan"><b>DANS: </b>08h29</span>
         </div>
     </div>
 </body>
