@@ -2,20 +2,22 @@
     {
         "Monday":[
             {
-                "start":"8h55",
-                "end":"9h55",
+                "start":"08h55",
+                "end":"09h55",
                 "subject":"ANGLAIS",
                 "teachers":["BELKADI"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
-                "start":"9h55",
+                "start":"09h55",
                 "end":"10h05",
                 "subject":"RECREATION",
                 "building":"27 GT",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 10
             },
             {
                 "start":"10h05",
@@ -24,7 +26,8 @@
                 "teachers":["BRUNELIERE"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"11h05",
@@ -33,14 +36,16 @@
                 "teachers":["CORDOUAN"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"12h05",
                 "end":"13h55",
                 "subject":"REPAS",
                 "building":"Capucine",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 110
             },
             {
                 "start":"13h55",
@@ -49,7 +54,8 @@
                 "teachers":["PLANTEFEVE","FILLON"],
                 "building":"CUBE",
                 "room":"NIV2 OS",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 180
             }
         ],
         "Tuesday":[
