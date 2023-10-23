@@ -38,9 +38,9 @@ subjectListener()
 let updateInterval = setInterval(()=>{
     updateTime()
     subjectListener()
-    /*time.hour=17
-    time.min=15
-    time.day='Monday'*/
+    /*time.hour=12
+    time.min=56
+    time.day='Friday'*/
 },1000)
 
 function toZero(time){
@@ -75,6 +75,9 @@ function subjectListener() {
             let subjectIndex = -1
             for(let subject of day[1]){
                 subjectIndex++
+                if(subject.type==='OPTION'){
+                    if(!(config.options[subject.optid]===true)) continue;
+                }
                 if(subject.start===`${toZero(time.hour)}h${toZero(time.min)}`){
                     console.log(subject)
                     found=true
