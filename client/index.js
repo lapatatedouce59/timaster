@@ -32,12 +32,15 @@ let time = { hour: Int16Array, min: Int16Array, sec: Int16Array, day: String }
 let lastRememberedTime = { hour: Int16Array, min: Int16Array, sec: Int16Array, day: String }
 let lastRememberedSubject = Object
 
+updateTime()
+subjectListener()
+
 let updateInterval = setInterval(()=>{
-    //updateTime()
+    updateTime()
     subjectListener()
-    time.hour=16
-    time.min=6
-    time.day='Monday'
+    /*time.hour=17
+    time.min=15
+    time.day='Monday'*/
 },1000)
 
 function toZero(time){
@@ -56,6 +59,12 @@ function updateTime() {
     console.log(`${time.day}, ${time.hour}h${time.min}:${time.sec}`);
 }
 
+function timeConvert(time){
+    let hours = Math.floor(time/60);
+    let min = Math.round(((time/60)-hours)*60);
+    return {hour: hours, mins: min}
+}
+
 function subjectListener() {
     for(let week in data){
         let weekObj=data[week]
@@ -70,30 +79,71 @@ function subjectListener() {
                     console.log(subject)
                     found=true
                 } else if (found===false) {
+                    //console.log('------------------------')
                     let subTime = subject.start.split('h')
                     let subEnd = subject.end.split('h')
                     let minusDuration = 0
-                    let hourMinusThreshold=0
+                    let hourMinusThreshold = 0
                     for(let i = parseInt(subEnd[1]);;i--){
                         //console.log(`i ${i}, minusDur ${minusDuration}, hour ${subEnd[0]-hourMinusThreshold} où -${hourMinusThreshold}`)
                         minusDuration++;
+                        //console.log(minusDuration)
                         if(i>0){
                             if(i===parseInt(time.min)&&parseInt(subEnd[0]-hourMinusThreshold)>=time.hour){
-                                console.log(subject)
+                                //console.log(subject)
                                 found=true
                                 Subject.title.innerText=subject.subject
                                 Subject.start.innerText=subject.start
                                 Subject.end.innerText=subject.end
                                 Subject.building.innerText=subject.building
-                                Subject.room.innerText=subject.room
+                                if(subject.type==='WORK') Subject.room.innerText=subject.room; else Subject.room.innerText='...'
                                 Subject.teachers.innerHTML='';
-                                for(let teacher of subject.teachers){
-                                    let teachSpan = document.createElement('span')
-                                    if(subject.teachers.length>1){
-                                        teachSpan.innerText=`, ${teacher}`
-                                    } else teachSpan.innerText=`${teacher}`
-                                    Subject.teachers.appendChild(teachSpan)
+                                if(subject.type==='WORK'){
+                                    for(let teacher of subject.teachers){
+                                        let teachSpan = document.createElement('span')
+                                        if(subject.teachers.length>1){
+                                            teachSpan.innerText=`, ${teacher}`
+                                        } else teachSpan.innerText=`${teacher}`
+                                        Subject.teachers.appendChild(teachSpan)
+                                    }
                                 }
+                                let minSince = parseInt(subEnd[0])*60+parseInt(subEnd[1])
+                                let actualMin = time.hour*60+time.min
+                                let resteDura = minSince-actualMin
+                                if(timeConvert(resteDura).hour===0 && !(timeConvert(resteDura).mins===0)){
+                                    timeRemainTitle.innerText=`${timeConvert(resteDura).mins}min`;
+                                } else if (timeConvert(resteDura).mins===0 && !(timeConvert(resteDura).hour===0)){
+                                    timeRemainTitle.innerText=`${timeConvert(resteDura).hour}h`;
+                                } else timeRemainTitle.innerText=`${timeConvert(resteDura).hour}h${timeConvert(resteDura).mins}`;
+                                if(day[1][subjectIndex+1]){
+                                    NextSubject.teachers.innerHTML='';
+                                    NextSubject.title.innerText=day[1][subjectIndex+1].subject;
+                                    NextSubject.room.innerText=`${day[1][subjectIndex+1].building}>${day[1][subjectIndex+1].room}`;
+                                    if(day[1][subjectIndex+1].type==='WORK'){
+                                        for(let teacher of day[1][subjectIndex+1].teachers){
+                                            let teachSpan = document.createElement('span')
+                                            if(day[1][subjectIndex+1].teachers.length>1){
+                                                teachSpan.innerText=`, ${teacher}`
+                                            } else teachSpan.innerText=`${teacher}`
+                                            NextSubject.teachers.appendChild(teachSpan)
+                                        }
+                                    }
+                                } else {
+                                    NextSubject.room.innerText='...'
+                                    NextSubject.teachers.innerText='...'
+                                    NextSubject.title.innerText='CONGÉ'
+                                }
+                                let lastSubjectOfDay=day[1][day[1].length-1]
+                                EndSubject.end.innerText=lastSubjectOfDay.subject;
+                                EndSubject.place.innerText=`${lastSubjectOfDay.building}>${lastSubjectOfDay.room||'...'}`;
+                                let subEndLast = lastSubjectOfDay.end.split('h')
+                                let endMin = parseInt(subEndLast[0])*60+parseInt(subEndLast[1])
+                                let restBeforeEnd = endMin-actualMin
+                                if(timeConvert(restBeforeEnd).hour===0 && !(timeConvert(restBeforeEnd).mins===0)){
+                                    EndSubject.remaining.innerText=`${timeConvert(restBeforeEnd).mins}min`;
+                                } else if (timeConvert(restBeforeEnd).mins===0 && !(timeConvert(restBeforeEnd).hour===0)){
+                                    EndSubject.remaining.innerText=`${timeConvert(restBeforeEnd).hour}h`;
+                                } else EndSubject.remaining.innerText=`${timeConvert(restBeforeEnd).hour}h${timeConvert(restBeforeEnd).mins}`;
                                 return;
                             }
                         } else if(minusDuration<subject.duration){
@@ -107,13 +157,19 @@ function subjectListener() {
                     }
                 }
             }
-            console.log('NO SUB')
             Subject.title.innerText='CONGÉ'
             Subject.start.innerText=lastRememberedSubject.end
             Subject.end.innerText='...'
             Subject.building.innerText=``
             Subject.room.innerText=``
             Subject.teachers.innerHTML='';
+            NextSubject.room.innerText='...'
+            NextSubject.teachers.innerText='...'
+            NextSubject.title.innerText='...'
+            EndSubject.end.innerText='...'
+            EndSubject.place.innerText='...'
+            EndSubject.remaining.innerText='Demain'
+            timeRemainTitle.innerText=':)'
         }
     }
 }

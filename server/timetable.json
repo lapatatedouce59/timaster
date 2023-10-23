@@ -66,7 +66,8 @@
                 "teachers":["INCONNU"],
                 "building":"27 GT",
                 "room":"115",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"8h55",
@@ -75,14 +76,16 @@
                 "teachers":[""],
                 "building":"27 GT",
                 "room":"ETUDE",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"9h55",
                 "end":"10h05",
                 "subject":"RECREATION",
                 "building":"27 GT",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 10
             },
             {
                 "start":"10h05",
@@ -91,14 +94,16 @@
                 "teachers":["LEMAIRE","OUELDI"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"11h05",
                 "end":"13h55",
                 "subject":"REPAS",
                 "building":"Maison",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 170
             },
             {
                 "start":"13h55",
@@ -107,7 +112,8 @@
                 "teachers":["CORDOUAN","MASSEMIN","FILLON","BENADA"],
                 "building":"CUBE",
                 "room":"NIV2 OS",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 180
             },
             {
                 "start":"16h55",
@@ -117,7 +123,8 @@
                 "teachers":["SBAHI"],
                 "building":"27 GT",
                 "room":"203",
-                "type":"OPTION"
+                "type":"OPTION",
+                "duration": 60
             }
         ],
         "Wednesday":[
@@ -128,7 +135,8 @@
                 "teachers":["BELKADI"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"8h55",
@@ -137,14 +145,16 @@
                 "teachers":["CORDOUAN"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"9h55",
                 "end":"10h05",
                 "subject":"RECREATION",
                 "building":"27 GT",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 10
             },
             {
                 "start":"10h05",
@@ -153,7 +163,8 @@
                 "teachers":["DELEMAR"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"11h05",
@@ -162,14 +173,16 @@
                 "teachers":["OUELDI"],
                 "building":"LABOS",
                 "room":"06",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 80
             },
             {
                 "start":"12h25",
                 "end":"13h30",
                 "subject":"REPAS",
                 "building":"Capucine",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 115
             },
             {
                 "start":"13h30",
@@ -178,7 +191,8 @@
                 "teachers":["OUELDI"],
                 "building":"LABOS",
                 "room":"06",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 80
             }
         ],
         "Thursday":[
@@ -189,14 +203,16 @@
                 "teachers":["BRUNELIERE"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 120
             },
             {
                 "start":"9h55",
                 "end":"10h05",
                 "subject":"RECREATION",
                 "building":"27 GT",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 10
             },
             {
                 "start":"10h05",
@@ -205,14 +221,16 @@
                 "teachers":["LEMAIRE"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 120
             },
             {
                 "start":"12h05",
                 "end":"13h30",
                 "subject":"REPAS",
                 "building":"Capucine",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 115
             },
             {
                 "start":"13h30",
@@ -221,7 +239,8 @@
                 "teachers":["SBAHI"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 80
             },
             {
                 "start":"14h50",
@@ -230,14 +249,16 @@
                 "teachers":["CORDOUAN"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"15h50",
                 "end":"16h00",
                 "subject":"RECREATION",
                 "building":"27 GT",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 10
             },
             {
                 "start":"16h00",
@@ -246,7 +267,8 @@
                 "teachers":["BAHMA"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 90
             }
         ],
         "Friday":[
@@ -257,14 +279,16 @@
                 "teachers":["THERY"],
                 "building":"CAMPUS",
                 "room":"MUSCU",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 120
             },
             {
                 "start":"9h55",
                 "end":"10h05",
                 "subject":"RECREATION",
                 "building":"27 GT",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 10
             },
             {
                 "start":"10h05",
@@ -273,7 +297,8 @@
                 "teachers":["DELEMAR"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"11h05",
@@ -282,7 +307,8 @@
                 "teachers":["SBAHI"],
                 "building":"27 GT",
                 "room":"236",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             },
             {
                 "start":"12h05",
@@ -292,14 +318,16 @@
                 "building":"27 GT",
                 "room":"236",
                 "type":"OPTION",
-                "optid":"option2"
+                "optid":"option2",
+                "duration": 50
             },
             {
                 "start":"12h05",
                 "end":"13h55",
                 "subject":"REPAS",
                 "building":"Capucine",
-                "type":"PAUSE"
+                "type":"PAUSE",
+                "duration": 110
             },
             {
                 "start":"13h55",
@@ -308,7 +336,8 @@
                 "teachers":["GILME","CORDOUAN"],
                 "building":"CUBE",
                 "room":"NIV2 OS",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 180
             },
             {
                 "start":"16h55",
@@ -317,7 +346,8 @@
                 "teachers":["GILME","ARKAM"],
                 "building":"CUBE",
                 "room":"NIV2 OS",
-                "type":"WORK"
+                "type":"WORK",
+                "duration": 60
             }
         ],
         "saturday":[
