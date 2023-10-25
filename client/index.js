@@ -1,9 +1,68 @@
 import sm from './sm.js';
 sm.init()
 
+let uuid = String
+
 let data = Array
 
 let config = Object
+
+//RECUPERATION TOKEN DISCORD
+let cookies = {}
+for(const el of document.cookie.split("; ")){
+    cookies[el.split("=")[0]] = el.split("=")[1]
+}
+if(cookies.discord_token){
+    console.log('SENDING DISCORD BEARER...')
+    fetch('http://127.0.0.1:4000/api/auth', {
+        method:'get',
+        headers:{
+            "Content-Type": "application/json",
+            "authorization": cookies.discord_token,
+        }
+    }).then(res => {
+        if(res.status===401){
+            alert('Votre compte n\'est pas autorisé à accéder à cette page.')
+            document.location.href='https://discord.com/api/oauth2/authorize?client_id=1166686401614589994&redirect_uri=http%3A%2F%2F127.0.0.1%3A5500%2Fclient%2Fverify.html&response_type=token&scope=identify'
+        } else if(res.status===200) {
+            console.log('ACCEPTED')
+            res.json().then(resbody =>{
+                uuid=resbody.uuid
+                console.log('GAINED UUID')
+                getTimetable()
+            })
+        } else if(res.status===403) {
+            alert('Votre jeton de connexion Discord est invalide ou a expiré. Nous allons vous reconnecter.')
+            document.location.href='https://discord.com/api/oauth2/authorize?client_id=1166686401614589994&redirect_uri=http%3A%2F%2F127.0.0.1%3A5500%2Fclient%2Fverify.html&response_type=token&scope=identify'
+        } else if(res.status===500) {
+            alert(`Un problème est survenu de notre coté. Merci d'en alerter les administrateurs.`)
+        }
+    })
+} else {
+    document.location.href='https://discord.com/api/oauth2/authorize?client_id=1166686401614589994&redirect_uri=http%3A%2F%2F127.0.0.1%3A5500%2Fclient%2Fverify.html&response_type=token&scope=identify'
+}
+
+function getTimetable(){
+    fetch('http://127.0.0.1:4000/api/timetable', {
+        method:'get',
+        headers:{
+            "Content-Type": "application/json",
+            "authorization": uuid,
+        }
+    }).then(res => {
+        if(res.status===200) {
+            console.log('UUID VALID')
+            res.json().then(resbody =>{
+                data=resbody.data
+                config=resbody.config
+                console.log('CONNECTION FINISHED')
+            })
+        } else if(res.status===401) {
+            alert('Votre jeton de connexion au serveur est invalide ou a expiré. Nous allons nous en occuper.')
+            document.location.reload()
+        }
+    })
+}
 
 let timeRemainTitle = document.getElementById('timeRemainTitle')
 
@@ -56,7 +115,7 @@ function updateTime() {
     time.min=('0'+actualTime.getMinutes()).slice(-2)
     time.sec=('0'+actualTime.getSeconds()).slice(-2)
     time.day=dayOfWeekAsString(actualTime.getDay());
-    console.log(`${time.day}, ${time.hour}h${time.min}:${time.sec}`);
+    //console.log(`${time.day}, ${time.hour}h${time.min}:${time.sec}`);
 }
 
 function timeConvert(time){
@@ -176,3 +235,4 @@ function subjectListener() {
         }
     }
 }
+
