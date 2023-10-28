@@ -1,360 +1,433 @@
 [
-    {
-        "Monday":[
-            {
-                "start":"08h55",
-                "end":"09h55",
-                "subject":"ANGLAIS",
-                "teachers":["BELKADI"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"09h55",
-                "end":"10h05",
-                "subject":"RECREATION",
-                "building":"27 GT",
-                "type":"PAUSE",
-                "duration": 10
-            },
-            {
-                "start":"10h05",
-                "end":"11h05",
-                "subject":"MATHS",
-                "teachers":["BRUNELIERE"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"11h05",
-                "end":"12h05",
-                "subject":"ING. DEV. DUR.",
-                "teachers":["CORDOUAN"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"12h05",
-                "end":"13h55",
-                "subject":"REPAS",
-                "building":"Capucine",
-                "type":"PAUSE",
-                "duration": 110
-            },
-            {
-                "start":"13h55",
-                "end":"16h55",
-                "subject":"TP I2D",
-                "teachers":["PLANTEFEVE","FILLON"],
-                "building":"CUBE",
-                "room":"NIV2 OS",
-                "type":"WORK",
-                "duration": 180
-            }
+  {
+    "Monday": [
+      {
+        "start": "08h55",
+        "end": "09h55",
+        "subject": "ANGLAIS",
+        "teachers": [
+          "BELKADI"
         ],
-        "Tuesday":[
-            {
-                "start":"7h55",
-                "end":"8h55",
-                "subject":"UE",
-                "teachers":["INCONNU"],
-                "building":"27 GT",
-                "room":"115",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"8h55",
-                "end":"9h55",
-                "subject":"PERMANENCE",
-                "teachers":[""],
-                "building":"27 GT",
-                "room":"ETUDE",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"9h55",
-                "end":"10h05",
-                "subject":"RECREATION",
-                "building":"27 GT",
-                "type":"PAUSE",
-                "duration": 10
-            },
-            {
-                "start":"10h05",
-                "end":"11h05",
-                "subject":"PCM",
-                "teachers":["LEMAIRE","OUELDI"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"11h05",
-                "end":"13h55",
-                "subject":"REPAS",
-                "building":"Maison",
-                "type":"PAUSE",
-                "duration": 170
-            },
-            {
-                "start":"13h55",
-                "end":"16h55",
-                "subject":"INOV. TECH.",
-                "teachers":["CORDOUAN","MASSEMIN","FILLON","BENADA"],
-                "building":"CUBE",
-                "room":"NIV2 OS",
-                "type":"WORK",
-                "duration": 180
-            },
-            {
-                "start":"16h55",
-                "end":"17h55",
-                "optid":"option1",
-                "subject":"AP FR",
-                "teachers":["SBAHI"],
-                "building":"27 GT",
-                "room":"203",
-                "type":"OPTION",
-                "duration": 60
-            }
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "09h55",
+        "end": "10h05",
+        "subject": "RECREATION",
+        "building": "27 GT",
+        "type": "PAUSE",
+        "duration": 10
+      },
+      {
+        "start": "10h05",
+        "end": "11h05",
+        "subject": "MATHS",
+        "teachers": [
+          "BRUNELIERE"
         ],
-        "Wednesday":[
-            {
-                "start":"7h55",
-                "end":"8h55",
-                "subject":"ANGLAIS",
-                "teachers":["BELKADI"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"8h55",
-                "end":"9h55",
-                "subject":"ING. DEV. DUR.",
-                "teachers":["CORDOUAN"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"9h55",
-                "end":"10h05",
-                "subject":"RECREATION",
-                "building":"27 GT",
-                "type":"PAUSE",
-                "duration": 10
-            },
-            {
-                "start":"10h05",
-                "end":"11h05",
-                "subject":"EMC",
-                "teachers":["DELEMAR"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"11h05",
-                "end":"12h25",
-                "subject":"TP PHY-CHI",
-                "teachers":["OUELDI"],
-                "building":"LABOS",
-                "room":"06",
-                "type":"WORK",
-                "duration": 80
-            },
-            {
-                "start":"12h25",
-                "end":"13h30",
-                "subject":"REPAS",
-                "building":"Capucine",
-                "type":"PAUSE",
-                "duration": 115
-            },
-            {
-                "start":"13h30",
-                "end":"14h50",
-                "subject":"PHY-CHI",
-                "teachers":["OUELDI"],
-                "building":"LABOS",
-                "room":"06",
-                "type":"WORK",
-                "duration": 80
-            }
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "11h05",
+        "end": "12h05",
+        "subject": "ING. DEV. DUR.",
+        "teachers": [
+          "CORDOUAN"
         ],
-        "Thursday":[
-            {
-                "start":"7h55",
-                "end":"9h55",
-                "subject":"MATHS",
-                "teachers":["BRUNELIERE"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 120
-            },
-            {
-                "start":"9h55",
-                "end":"10h05",
-                "subject":"RECREATION",
-                "building":"27 GT",
-                "type":"PAUSE",
-                "duration": 10
-            },
-            {
-                "start":"10h05",
-                "end":"12h05",
-                "subject":"SPÉ MATHS",
-                "teachers":["LEMAIRE"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 120
-            },
-            {
-                "start":"12h05",
-                "end":"13h30",
-                "subject":"REPAS",
-                "building":"Capucine",
-                "type":"PAUSE",
-                "duration": 115
-            },
-            {
-                "start":"13h30",
-                "end":"14h50",
-                "subject":"FRANCAIS",
-                "teachers":["SBAHI"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 80
-            },
-            {
-                "start":"14h50",
-                "end":"15h50",
-                "subject":"ING. DEV. DUR.",
-                "teachers":["CORDOUAN"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"15h50",
-                "end":"16h00",
-                "subject":"RECREATION",
-                "building":"27 GT",
-                "type":"PAUSE",
-                "duration": 10
-            },
-            {
-                "start":"16h00",
-                "end":"17h30",
-                "subject":"ALLEMAND",
-                "teachers":["BAHMA"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 90
-            }
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "12h05",
+        "end": "13h55",
+        "subject": "REPAS",
+        "building": "Capucine",
+        "type": "PAUSE",
+        "duration": 110
+      },
+      {
+        "start": "13h55",
+        "end": "16h55",
+        "subject": "TP I2D",
+        "teachers": [
+          "PLANTEFEVE",
+          "FILLON"
         ],
-        "Friday":[
-            {
-                "start":"7h55",
-                "end":"9h55",
-                "subject":"EPS",
-                "teachers":["THERY"],
-                "building":"CAMPUS",
-                "room":"MUSCU",
-                "type":"WORK",
-                "duration": 120
-            },
-            {
-                "start":"9h55",
-                "end":"10h05",
-                "subject":"RECREATION",
-                "building":"27 GT",
-                "type":"PAUSE",
-                "duration": 10
-            },
-            {
-                "start":"10h05",
-                "end":"11h05",
-                "subject":"HGE",
-                "teachers":["DELEMAR"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"11h05",
-                "end":"12h05",
-                "subject":"FRANCAIS",
-                "teachers":["SBAHI"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"WORK",
-                "duration": 60
-            },
-            {
-                "start":"12h05",
-                "end":"12h55",
-                "subject":"APO",
-                "teachers":["LEMAIRE"],
-                "building":"27 GT",
-                "room":"236",
-                "type":"OPTION",
-                "optid":"option2",
-                "duration": 50
-            },
-            {
-                "start":"12h05",
-                "end":"13h55",
-                "subject":"REPAS",
-                "building":"Capucine",
-                "type":"PAUSE",
-                "duration": 110
-            },
-            {
-                "start":"13h55",
-                "end":"16h55",
-                "subject":"TP I2D",
-                "teachers":["GILME","CORDOUAN"],
-                "building":"CUBE",
-                "room":"NIV2 OS",
-                "type":"WORK",
-                "duration": 180
-            },
-            {
-                "start":"16h55",
-                "end":"17h55",
-                "subject":"ENS. TECH. LVA",
-                "teachers":["GILME","ARKAM"],
-                "building":"CUBE",
-                "room":"NIV2 OS",
-                "type":"WORK",
-                "duration": 60
-            }
+        "building": "CUBE",
+        "room": "NIV2 OS",
+        "type": "WORK",
+        "duration": 180
+      }
+    ],
+    "Tuesday": [
+      {
+        "start": "7h55",
+        "end": "8h55",
+        "subject": "UE",
+        "teachers": [
+          "INCONNU"
         ],
-        "saturday":[
-
+        "building": "27 GT",
+        "room": "115",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "8h55",
+        "end": "9h55",
+        "subject": "PERMANENCE",
+        "teachers": [
+          ""
         ],
-        "sunday":[
-
-        ]
-    }
+        "building": "27 GT",
+        "room": "ETUDE",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "9h55",
+        "end": "10h05",
+        "subject": "RECREATION",
+        "building": "27 GT",
+        "type": "PAUSE",
+        "duration": 10
+      },
+      {
+        "start": "10h05",
+        "end": "11h05",
+        "subject": "PCM",
+        "teachers": [
+          "LEMAIRE",
+          "OUELDI"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "11h05",
+        "end": "13h55",
+        "subject": "REPAS",
+        "building": "Maison",
+        "type": "PAUSE",
+        "duration": 170
+      },
+      {
+        "start": "13h55",
+        "end": "16h55",
+        "subject": "INOV. TECH.",
+        "teachers": [
+          "CORDOUAN",
+          "MASSEMIN",
+          "FILLON",
+          "BENADA"
+        ],
+        "building": "CUBE",
+        "room": "NIV2 OS",
+        "type": "WORK",
+        "duration": 180
+      },
+      {
+        "start": "16h55",
+        "end": "17h55",
+        "optid": "option1",
+        "subject": "AP FR",
+        "teachers": [
+          "SBAHI"
+        ],
+        "building": "27 GT",
+        "room": "203",
+        "type": "OPTION",
+        "duration": 60
+      }
+    ],
+    "Wednesday": [
+      {
+        "start": "7h55",
+        "end": "8h55",
+        "subject": "ANGLAIS",
+        "teachers": [
+          "BELKADI"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "8h55",
+        "end": "9h55",
+        "subject": "ING. DEV. DUR.",
+        "teachers": [
+          "CORDOUAN"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "9h55",
+        "end": "10h05",
+        "subject": "RECREATION",
+        "building": "27 GT",
+        "type": "PAUSE",
+        "duration": 10
+      },
+      {
+        "start": "10h05",
+        "end": "11h05",
+        "subject": "EMC",
+        "teachers": [
+          "DELEMAR"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "11h05",
+        "end": "12h25",
+        "subject": "TP PHY-CHI",
+        "teachers": [
+          "OUELDI"
+        ],
+        "building": "LABOS",
+        "room": "06",
+        "type": "WORK",
+        "duration": 80
+      },
+      {
+        "start": "12h25",
+        "end": "13h30",
+        "subject": "REPAS",
+        "building": "Capucine",
+        "type": "PAUSE",
+        "duration": 115
+      },
+      {
+        "start": "13h30",
+        "end": "14h50",
+        "subject": "PHY-CHI",
+        "teachers": [
+          "OUELDI"
+        ],
+        "building": "LABOS",
+        "room": "06",
+        "type": "WORK",
+        "duration": 80
+      }
+    ],
+    "Thursday": [
+      {
+        "start": "7h55",
+        "end": "9h55",
+        "subject": "MATHS",
+        "teachers": [
+          "BRUNELIERE"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 120
+      },
+      {
+        "start": "9h55",
+        "end": "10h05",
+        "subject": "RECREATION",
+        "building": "27 GT",
+        "type": "PAUSE",
+        "duration": 10
+      },
+      {
+        "start": "10h05",
+        "end": "12h05",
+        "subject": "SPÉ MATHS",
+        "teachers": [
+          "LEMAIRE"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 120
+      },
+      {
+        "start": "12h05",
+        "end": "13h30",
+        "subject": "REPAS",
+        "building": "Capucine",
+        "type": "PAUSE",
+        "duration": 115
+      },
+      {
+        "start": "13h30",
+        "end": "14h50",
+        "subject": "FRANCAIS",
+        "teachers": [
+          "SBAHI"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 80
+      },
+      {
+        "start": "14h50",
+        "end": "15h50",
+        "subject": "ING. DEV. DUR.",
+        "teachers": [
+          "CORDOUAN"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "15h50",
+        "end": "16h00",
+        "subject": "RECREATION",
+        "building": "27 GT",
+        "type": "PAUSE",
+        "duration": 10
+      },
+      {
+        "start": "16h00",
+        "end": "17h30",
+        "subject": "ALLEMAND",
+        "teachers": [
+          "BAHMA"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 90
+      }
+    ],
+    "Friday": [
+      {
+        "start": "7h55",
+        "end": "9h55",
+        "subject": "EPS",
+        "teachers": [
+          "THERY"
+        ],
+        "building": "CAMPUS",
+        "room": "MUSCU",
+        "type": "WORK",
+        "duration": 120
+      },
+      {
+        "start": "9h55",
+        "end": "10h05",
+        "subject": "RECREATION",
+        "building": "27 GT",
+        "type": "PAUSE",
+        "duration": 10
+      },
+      {
+        "start": "10h05",
+        "end": "11h05",
+        "subject": "HGE",
+        "teachers": [
+          "DELEMAR"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "11h05",
+        "end": "12h05",
+        "subject": "FRANCAIS",
+        "teachers": [
+          "SBAHI"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "WORK",
+        "duration": 60
+      },
+      {
+        "start": "12h05",
+        "end": "12h55",
+        "subject": "APO",
+        "teachers": [
+          "LEMAIRE"
+        ],
+        "building": "27 GT",
+        "room": "236",
+        "type": "OPTION",
+        "optid": "option2",
+        "duration": 50
+      },
+      {
+        "start": "12h05",
+        "end": "13h55",
+        "subject": "REPAS",
+        "building": "Capucine",
+        "type": "PAUSE",
+        "duration": 110
+      },
+      {
+        "start": "13h55",
+        "end": "16h55",
+        "subject": "TP I2D",
+        "teachers": [
+          "GILME",
+          "CORDOUAN"
+        ],
+        "building": "CUBE",
+        "room": "NIV2 OS",
+        "type": "WORK",
+        "duration": 180
+      },
+      {
+        "start": "16h55",
+        "end": "17h55",
+        "subject": "ENS. TECH. LVA",
+        "teachers": [
+          "GILME",
+          "ARKAM"
+        ],
+        "building": "CUBE",
+        "room": "NIV2 OS",
+        "type": "WORK",
+        "duration": 60
+      }
+    ],
+    "Saturday": [
+      {
+        "start": "7h00",
+        "end": "20h00",
+        "subject": "WEEKEND",
+        "teachers": [],
+        "building": "MAISON",
+        "type": "PAUSE",
+        "duration": 780
+      }
+    ],
+    "Sunday": [
+      {
+        "start": "7h00",
+        "end": "20h00",
+        "subject": "WEEKEND",
+        "teachers": [],
+        "building": "MAISON",
+        "type": "PAUSE",
+        "duration": 780
+      }
+    ]
+  }
 ]

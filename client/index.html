@@ -89,6 +89,7 @@
             font-size: 40px;
             margin-left: 10px;
             margin-right: 20%;
+            pointer-events: none;
         }
         .prefootSpan{
             font-size: 40px;
@@ -109,8 +110,17 @@
             width: fit-content;
         }
     </style>
+    <link rel="stylesheet" href="dropdown.css">
 </head>
 <body>
+    <div class="dropdown">
+        <button class="dropbtn">MENU<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            <a href="#">Dashboard</a>
+            <a href="./edit.html">Modifier</a>
+            <a href="#">A propos</a>
+        </div>
+    </div>
     <div id="head">
         <div style="margin: 0;">
             <h1 id="subjectTitle">ANGLAIS</h1>

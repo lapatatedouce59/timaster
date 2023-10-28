@@ -15,6 +15,11 @@ let refreshInterval = setInterval(()=>{
     //console.log('CLIENTS REFRESHED')
 },600000)
 
+function save(){
+    fs.writeFileSync('./server/timetable.json', JSON.stringify(timetable, null, 2));
+    fs.writeFileSync('./server/config.json', JSON.stringify(config, null, 2));
+}
+
 const {myRequestHeaders,validateRequest} = require('./modules/validator')
 const whitelist = require("./whitelist.json");
 
@@ -65,14 +70,23 @@ app.get("/api/timetable", cors(), myRequestHeaders, validateRequest, (req, res)=
     } else return res.status(401).set('Retry-After','Re-authenticating on /api/auth').send('Invalid UUID.')
 })
 
-/*app.put("/api/timetable/edit", cors(), myRequestHeaders, validateRequest, (req, res)=>{
+app.put("/api/timetable/edit/options", cors(), myRequestHeaders, validateRequest, (req, res)=>{
     if(clients.includes(req.headers.authorization)){
         if(!req.body) return res.status(400).set('Retry-After','Put a fucking body in the request').send('No body.')
-        console.log(req.body)
-        return res.sendStatus(200)
+        config.options[req.body.optid]=req.body.optvalue
+        save()
+        return res.status(200).send({ data: timetable, config: config })
     } else return res.status(401).set('Retry-After','Re-authenticating on /api/auth').send('Invalid UUID.')
-})*/
+})
 
+app.put("/api/timetable/edit/week", cors(), myRequestHeaders, validateRequest, (req, res)=>{
+    if(clients.includes(req.headers.authorization)){
+        if(!req.body) return res.status(400).set('Retry-After','Put a fucking body in the request').send('No body.')
+        config.weektype=parseInt(req.body.choosenWeek.replace('week',''))
+        save()
+        return res.status(200).send({ data: timetable, config: config })
+    } else return res.status(401).set('Retry-After','Re-authenticating on /api/auth').send('Invalid UUID.')
+})
 
 let port = 4000
 app.listen(port, ()=>{

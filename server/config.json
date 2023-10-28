@@ -1,9 +1,8 @@
 {
-    "weektype":1,
-    "maxWeekType":2,
-
-    "options":{
-        "option1":true,
-        "option2":false
-    }
+  "weektype": 1,
+  "maxWeekType": 2,
+  "options": {
+    "option1": true,
+    "option2": false
+  }
 }

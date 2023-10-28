@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Édition - Timaster</title>
+    <link rel="stylesheet" href="dropdown.css">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #232323;
+            color: white;
+        }
+        #head{
+            margin: 0;
+            background-color: #FF4848;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .titleClassic{
+            margin-left: 10px;
+            font-size: 80px;
+        }
+        .firstFields{
+            width: fit-content;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="dropdown">
+    <button class="dropbtn">MENU<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+        <a href="./index.html">Dashboard</a>
+        <a href="#">Modifier</a>
+        <a href="#">A propos</a>
+    </div>
+</div>
+<div id="head">
+    <div style="margin: 0;">
+        <h1 class="titleClassic">Menu d'édition</h1>
+    </div>
+</div>
+<div style="margin-top: 10px">
+    <b>Dernière mise à jour: <span id="lastUpdateTime"></span></b>
+</div>
+<div style="display: flex; margin-top: 10px; margin-left: 10px">
+    <fieldset class="firstFields">
+        <legend>Type de semaine</legend>
+        <p>Choisissez ici le type de semaine. Nombre de semaine configurable dans le fichier de configuration.</p>
+        <div style="display: flex; justify-content: space-between">
+            <div id="weekTypeContainer">
+                <span><input type="radio" name="weekId" value="week1">Semaine 1</span><br>
+                <span><input type="radio" name="weekId" value="week2">Semaine 2</span>
+            </div>
+            <button id="submitChoosenWeek" class="btnSend">Enregistrer</button>
+        </div>
+    </fieldset>
+    <fieldset class="firstFields">
+        <legend>Options</legend>
+        <p>Selectionnez ici les cours optionnels à activer.</p>
+        <div id="optToggleContainer">
+            <span><input type="checkbox">AP FR</span><br>
+            <span><input type="checkbox">APO</span>
+        </div>
+    </fieldset>
+</div>
+<div style="width: 100%; text-align: center">
+    <h1>Comming soon...</h1>
+</div>
+<script src="./edit.js"></script>
+</body>
+</html>

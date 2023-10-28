@@ -97,9 +97,9 @@ subjectListener()
 let updateInterval = setInterval(()=>{
     updateTime()
     subjectListener()
-    /*time.hour=12
-    time.min=56
-    time.day='Friday'*/
+    /*time.hour=11
+    time.min=27
+    time.day='Thursday'*/
 },1000)
 
 function toZero(time){
@@ -115,7 +115,7 @@ function updateTime() {
     time.min=('0'+actualTime.getMinutes()).slice(-2)
     time.sec=('0'+actualTime.getSeconds()).slice(-2)
     time.day=dayOfWeekAsString(actualTime.getDay());
-    //console.log(`${time.day}, ${time.hour}h${time.min}:${time.sec}`);
+    console.log(`${time.day}, ${time.hour}h${time.min}:${time.sec}`);
 }
 
 function timeConvert(time){
@@ -170,13 +170,13 @@ function subjectListener() {
                                     }
                                 }
                                 let minSince = parseInt(subEnd[0])*60+parseInt(subEnd[1])
-                                let actualMin = time.hour*60+time.min
+                                let actualMin = parseInt(parseInt(time.hour)*60+parseInt(time.min))
                                 let resteDura = minSince-actualMin
                                 if(timeConvert(resteDura).hour===0 && !(timeConvert(resteDura).mins===0)){
-                                    timeRemainTitle.innerText=`${timeConvert(resteDura).mins}min`;
+                                    timeRemainTitle.innerText=`${toZero(timeConvert(resteDura).mins)}min`;
                                 } else if (timeConvert(resteDura).mins===0 && !(timeConvert(resteDura).hour===0)){
                                     timeRemainTitle.innerText=`${timeConvert(resteDura).hour}h`;
-                                } else timeRemainTitle.innerText=`${timeConvert(resteDura).hour}h${timeConvert(resteDura).mins}`;
+                                } else timeRemainTitle.innerText=`${timeConvert(resteDura).hour}h${toZero(timeConvert(resteDura).mins)}`;
                                 if(day[1][subjectIndex+1]){
                                     NextSubject.teachers.innerHTML='';
                                     NextSubject.title.innerText=day[1][subjectIndex+1].subject;
@@ -202,10 +202,10 @@ function subjectListener() {
                                 let endMin = parseInt(subEndLast[0])*60+parseInt(subEndLast[1])
                                 let restBeforeEnd = endMin-actualMin
                                 if(timeConvert(restBeforeEnd).hour===0 && !(timeConvert(restBeforeEnd).mins===0)){
-                                    EndSubject.remaining.innerText=`${timeConvert(restBeforeEnd).mins}min`;
+                                    EndSubject.remaining.innerText=`${toZero(timeConvert(restBeforeEnd).mins)}min`;
                                 } else if (timeConvert(restBeforeEnd).mins===0 && !(timeConvert(restBeforeEnd).hour===0)){
                                     EndSubject.remaining.innerText=`${timeConvert(restBeforeEnd).hour}h`;
-                                } else EndSubject.remaining.innerText=`${timeConvert(restBeforeEnd).hour}h${timeConvert(restBeforeEnd).mins}`;
+                                } else EndSubject.remaining.innerText=`${timeConvert(restBeforeEnd).hour}h${toZero(timeConvert(restBeforeEnd).mins)}`;
                                 return;
                             }
                         } else if(minusDuration<subject.duration){
