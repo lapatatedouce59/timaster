@@ -4,12 +4,15 @@ let data = Array
 
 let config = Object
 
+let teachers = Array
+
 
 
 let lastUpdateTime = document.getElementById('lastUpdateTime')
 let weekTypeContainer = document.getElementById('weekTypeContainer')
 let optToggleContainer = document.getElementById('optToggleContainer')
 let submitChoosenWeek = document.getElementById('submitChoosenWeek')
+let teachersChekbox = document.getElementById('teachersChekbox')
 
 function toZero(time){
     return ('0'+time).slice(-2)
@@ -62,6 +65,7 @@ function getTimetable(){
             res.json().then(resbody =>{
                 data=resbody.data
                 config=resbody.config
+                teachers=resbody.teachers
                 console.log('CONNECTION FINISHED')
                 refresh()
             })
@@ -77,9 +81,12 @@ function refresh(){
     let actualTime = new Date();
     lastUpdateTime.innerText=`${toZero(actualTime.getHours())}h${toZero(actualTime.getMinutes())}:${toZero(actualTime.getSeconds())}`
     constructAndRefreshElems()
+    refreshAndMapTeachers()
     return 'done';
 }
+
 function constructAndRefreshElems(){
+    // MISE A JOURS DES RADIO BUTTONS DE SEMAINES
     weekTypeContainer.innerHTML=''
     for(let i = 1;i<=config.maxWeekType;i++){
         let radioBtn = document.createElement('input')
@@ -96,6 +103,7 @@ function constructAndRefreshElems(){
         weekTypeContainer.appendChild(indicSpan)
         weekTypeContainer.appendChild(br)
     }
+    // MISE A JOUR DES CHECKBOX D'OPTIONS
     optToggleContainer.innerHTML=''
     for(opt of Object.entries(config.options)){
         let checkBox = document.createElement('input')
@@ -118,6 +126,51 @@ function constructAndRefreshElems(){
                     res.json().then(resbody =>{
                         data=resbody.data
                         config=resbody.config
+                        teachers=resbody.teachers
+                        refresh()
+                    })
+                } else if(res.status===401) {
+                    alert('Votre jeton de connexion au serveur est invalide ou a expiré. Nous allons nous en occuper.')
+                    document.location.reload()
+                } else if(res.status===404) {
+                    alert(`Une erreur est survenue quant à la recherche de l'option.`)
+                }
+            })
+        })
+        let indicSpan=document.createElement('span')
+        indicSpan.appendChild(checkBox)
+        let nameSpan=document.createElement('span')
+        let optSub = queryOption(opt[0])
+        nameSpan.innerText=`${optSub.subject}`
+        indicSpan.appendChild(nameSpan)
+        let br = document.createElement('br')
+        optToggleContainer.appendChild(indicSpan)
+        optToggleContainer.appendChild(br)
+    }
+    //MISE A JOUR DES CHECKBOX DE PROFS
+    teachersChekbox.innerHTML=''
+    for(let teacher of listTeachers()){
+        let checkBox = document.createElement('input')
+        checkBox.type='checkbox'
+        checkBox.value=teacher
+        checkBox.checked=isTeacherAbsent(teacher)
+        checkBox.addEventListener('input',()=>{
+            console.log('SENT CHANGE REQUEST')
+            let methodReplace = getReplacementMethod()
+            fetch('http://127.0.0.1:4000/api/timetable/edit/teachers', {
+                method:'put',
+                headers:{
+                    "Content-Type": "application/json",
+                    "authorization": uuid,
+                },
+                body: JSON.stringify({optid: checkBox.value, optvalue: checkBox.checked, stmethod: methodReplace.value})
+            }).then(res => {
+                if(res.status===200) {
+                    console.log('CHANGES ACCEPTED')
+                    res.json().then(resbody =>{
+                        data=resbody.data
+                        config=resbody.config
+                        teachers=resbody.teachers
                         refresh()
                     })
                 } else if(res.status===401) {
@@ -140,6 +193,14 @@ function constructAndRefreshElems(){
     }
 }
 
+let teachMap = new Map()
+function isTeacherAbsent(name){
+    for(let teacher of teachers){
+        if(!(teacher.name===name)) continue;
+        return teacher.present
+    }
+}
+
 submitChoosenWeek.addEventListener('click',()=>{
     let elemList = document.getElementsByName('weekId');
     for (let elem of elemList) {
@@ -158,6 +219,7 @@ submitChoosenWeek.addEventListener('click',()=>{
                     res.json().then(resbody =>{
                         data=resbody.data
                         config=resbody.config
+                        teachers=resbody.teachers
                         refresh()
                     })
                 } else if(res.status===401) {
@@ -180,6 +242,32 @@ function queryOption(name){
                 if(!(sub.optid===name)) continue;
                 return sub;
             }
+        }
+    }
+}
+
+function listTeachers(){
+    let res = []
+    for(let week in data){
+        if(!(parseInt(week)===config.weektype-1)) continue;
+        for(let day of Object.entries(data[week])){
+            for(let sub of day[1]){
+                if(!(sub.type==='WORK')) continue;
+                for(let teacher of sub.teachers){
+                    if(res.includes(teacher)) continue;
+                    res.push(teacher)
+                }
+            }
+        }
+    }
+    return res;
+}
+
+function getReplacementMethod(){
+    let elemList = document.getElementsByName('chooseReplaceSubject');
+    for (let elem of elemList) {
+        if (elem.checked){
+            return elem;
         }
     }
 }

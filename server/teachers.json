@@ -1,0 +1,87 @@
+[
+  {
+    "name": "BELKADI",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "BRUNELIERE",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "CORDOUAN",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "PLANTEFEVE",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "FILLON",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "INCONNU",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "SURVEILLANTS",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "LEMAIRE",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "OUELDI",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "MASSEMIN",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "BENADA",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "DELEMAR",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "SBAHI",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "BAHMA",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "THERY",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "GILME",
+    "present": true,
+    "method": "study"
+  },
+  {
+    "name": "ARKAM",
+    "present": true,
+    "method": "study"
+  }
+]

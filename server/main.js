@@ -4,8 +4,9 @@ const cors = require('cors')
 const fs = require('fs')
 const {v4} = require('uuid')
 
-const timetable = require('./timetable.json')
-const config = require('./config.json')
+let timetable = require('./timetable.json')
+let config = require('./config.json')
+let teachers = require('./teachers.json')
 
 let clients = []
 let clientInfo = new Map()
@@ -13,11 +14,34 @@ let clientInfo = new Map()
 let refreshInterval = setInterval(()=>{
     clients=[]
     //console.log('CLIENTS REFRESHED')
-},600000)
+},600000);
+
+//INIT FUNC
+(()=>{
+    teachers=[]
+    let teachersList = []
+    for(let week in timetable){
+        if(!(parseInt(week)===config.weektype-1)) continue;
+        for(let day of Object.entries(timetable[week])){
+            for(let sub of day[1]){
+                if(!(sub.type==='WORK')) continue;
+                for(let teacher of sub.teachers){
+                    if(teachersList.includes(teacher)) continue;
+                    teachersList.push(teacher)
+                }
+            }
+        }
+    }
+    for(let teacher of teachersList){
+        teachers.push({ name: teacher, present: true, method: 'study' })
+    }
+    save()
+})();
 
 function save(){
     fs.writeFileSync('./server/timetable.json', JSON.stringify(timetable, null, 2));
     fs.writeFileSync('./server/config.json', JSON.stringify(config, null, 2));
+    fs.writeFileSync('./server/teachers.json', JSON.stringify(teachers, null, 2));
 }
 
 const {myRequestHeaders,validateRequest} = require('./modules/validator')
@@ -66,7 +90,7 @@ const getBearerTokenFromHeader = (authToken) => {
 
 app.get("/api/timetable", cors(), myRequestHeaders, validateRequest, (req, res)=>{
     if(clients.includes(req.headers.authorization)){
-        return res.status(200).send({ data: timetable, config: config })
+        return res.status(200).send({ data: timetable, config: config, teachers: teachers })
     } else return res.status(401).set('Retry-After','Re-authenticating on /api/auth').send('Invalid UUID.')
 })
 
@@ -75,7 +99,7 @@ app.put("/api/timetable/edit/options", cors(), myRequestHeaders, validateRequest
         if(!req.body) return res.status(400).set('Retry-After','Put a fucking body in the request').send('No body.')
         config.options[req.body.optid]=req.body.optvalue
         save()
-        return res.status(200).send({ data: timetable, config: config })
+        return res.status(200).send({ data: timetable, config: config, teachers: teachers })
     } else return res.status(401).set('Retry-After','Re-authenticating on /api/auth').send('Invalid UUID.')
 })
 
@@ -84,9 +108,46 @@ app.put("/api/timetable/edit/week", cors(), myRequestHeaders, validateRequest, (
         if(!req.body) return res.status(400).set('Retry-After','Put a fucking body in the request').send('No body.')
         config.weektype=parseInt(req.body.choosenWeek.replace('week',''))
         save()
-        return res.status(200).send({ data: timetable, config: config })
+        return res.status(200).send({ data: timetable, config: config, teachers: teachers })
     } else return res.status(401).set('Retry-After','Re-authenticating on /api/auth').send('Invalid UUID.')
 })
+
+app.put("/api/timetable/edit/teachers", cors(), myRequestHeaders, validateRequest, (req, res)=>{
+    if(clients.includes(req.headers.authorization)){
+        if(!req.body) return res.status(400).set('Retry-After','Put a fucking body in the request').send('No body.')
+        let teacherIndex = -1
+        for(let teacher of teachers){
+            teacherIndex++
+            if(!(teacher.name===req.body.optid)) continue;
+            teachers[teacherIndex].present=req.body.optvalue
+            teachers[teacherIndex].method=req.body.stmethod
+            for(let week in timetable){
+                if(!(parseInt(week)===config.weektype-1)) continue;
+                for(let day of Object.entries(data[week])){
+                    for(let sub of day[1]){
+                        if((sub.teachers.includes(teacher.name))) continue;
+                        switch (req.body.optvalue){
+                            case true:
+
+                                break;
+                            case false:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+        save()
+        return res.status(200).send({ data: timetable, config: config, teachers: teachers })
+    } else return res.status(401).set('Retry-After','Re-authenticating on /api/auth').send('Invalid UUID.')
+})
+
+function teacherPresence(name){
+    for(let teacher of teachers){
+        if(!(teacher.name===name)) continue;
+        return teacher.present
+    }
+}
 
 let port = 4000
 app.listen(port, ()=>{

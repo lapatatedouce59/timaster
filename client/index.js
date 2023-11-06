@@ -7,6 +7,8 @@ let data = Array
 
 let config = Object
 
+let teachers = Array
+
 //RECUPERATION TOKEN DISCORD
 let cookies = {}
 for(const el of document.cookie.split("; ")){
@@ -55,6 +57,7 @@ function getTimetable(){
             res.json().then(resbody =>{
                 data=resbody.data
                 config=resbody.config
+                teachers=resbody.teachers
                 console.log('CONNECTION FINISHED')
             })
         } else if(res.status===401) {
@@ -235,4 +238,3 @@ function subjectListener() {
         }
     }
 }
-

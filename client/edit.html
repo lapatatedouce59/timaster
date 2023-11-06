@@ -28,6 +28,11 @@
             width: fit-content;
             margin-top: 10px;
         }
+        mark{
+            background-color: #FF4848;
+            border-radius: 4px;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +41,7 @@
     <div class="dropdown-content">
         <a href="./index.html">Dashboard</a>
         <a href="#">Modifier</a>
+        <a href="#">Tiers</a>
         <a href="#">A propos</a>
     </div>
 </div>
@@ -65,6 +71,22 @@
         <div id="optToggleContainer">
             <span><input type="checkbox">AP FR</span><br>
             <span><input type="checkbox">APO</span>
+        </div>
+    </fieldset>
+</div>
+<div style="display: flex; margin-top: 10px; margin-left: 10px">
+    <fieldset style="width: fit-content;">
+        <legend>Absences</legend>
+        <b>Selectionnez d'abord la <mark>méthode de remplacement</mark> puis le professeur!</b>
+        <p>Remplacer le(s) cours par:</p>
+        <span><input type="radio" name="chooseReplaceSubject" value="out"> Sortie</span><br>
+        <span><input type="radio" name="chooseReplaceSubject" value="free_pause"> Pause libre</span><br>
+        <span><input type="radio" name="chooseReplaceSubject" value="study"> Étude</span>
+        <p>Marquez un professeur comme absent.</p>
+        <div id="teachersChekbox">
+            <span><input type="checkbox" name="noTeachers"> CORDOUAN</span>
+            <span><input type="checkbox" name="noTeachers"> BEKRAM</span>
+            <span><input type="checkbox" name="noTeachers"> AMAURY</span>
         </div>
     </fieldset>
 </div>
